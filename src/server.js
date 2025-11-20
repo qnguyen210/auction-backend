@@ -3,6 +3,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
+const auctionRoutes = require('./routes/auctionRoutes');
 
 dotenv.config();
 
@@ -19,9 +20,11 @@ connectDB();
 app.get('/', (req, res) => {
   res.json({ message: 'Auction API is running' });
 });
+
 // 👉 auth routes
 app.use('/api/auth', authRoutes);
-
+// 👉 auction routes
+app.use('/api/auctions', auctionRoutes);
 const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {

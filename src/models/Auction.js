@@ -1,3 +1,4 @@
+// src/models/Auction.js
 const mongoose = require('mongoose');
 
 const auctionSchema = new mongoose.Schema(
