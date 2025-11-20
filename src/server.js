@@ -4,6 +4,8 @@ const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
 const auctionRoutes = require('./routes/auctionRoutes');
+const bidRoutes = require('./routes/bidRoutes');
+
 
 dotenv.config();
 
@@ -26,6 +28,8 @@ app.use('/api/auth', authRoutes);
 // 👉 auction routes
 app.use('/api/auctions', auctionRoutes);
 const PORT = process.env.PORT || 4000;
+// 👉 bid routes
+app.use('/api/bids', bidRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
